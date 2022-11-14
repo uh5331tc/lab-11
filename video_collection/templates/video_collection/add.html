@@ -3,6 +3,8 @@
 
 {% block content %}
 
+<h2>Add new Video</h2>
+
 <form method="POST" aciton="{% url 'add_video' %}">
     {% csrf_token %}
     {{ new_video_form }}
