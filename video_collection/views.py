@@ -20,7 +20,7 @@ def add(request):
         if new_video_form.is_valid():  #is the form valid ???
             try:
                 new_video_form.save()  # Creates new Video object and saves 
-                return redirect('video_list')
+                return redirect('video_list')#no message sent to user
             except IntegrityError:
                 messages.warning(request, 'You already added that video') #user message
             except ValidationError:
@@ -48,5 +48,6 @@ def video_list(request):
         videos = Video.objects.order_by(Lower('name'))
 
     return render(request, 'video_collection/video_list.html', {'videos': videos, 'search_form': search_form})
+
 
 
