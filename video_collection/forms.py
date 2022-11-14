@@ -9,4 +9,7 @@ class VideoForm(forms.ModelForm):
 class SearchForm(forms.Form):
     search_term = forms.CharField()
 
-    
+
+class SearchForm(forms.Form):
+    search_term = forms.CharField()
+      

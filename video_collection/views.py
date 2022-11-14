@@ -37,15 +37,15 @@ def add(request):
 
 def video_list(request):
 
-    search_form = SearchForm(request.GET)
+    search_form = SearchForm(request.GET)  #build the form from data user has sent to app
 
     if search_form.is_valid():
         search_term = search_form.cleaned_data['search_term']
-        videos = Video.objects.filter(name__icontains=search_term).order_by(Lower('name'))
+        videos = Video.objects.filter(name__icontains=search_term).order_by(Lower('name')) #sorting the order
 
-    else:
+    else:  #form is not filled in or the first time the user sees the page
         search_form = SearchForm()
-        videos = Video.objects.order_by(Lower('name'))
+        videos = Video.objects.order_by(Lower('name')) 
 
     return render(request, 'video_collection/video_list.html', {'videos': videos, 'search_form': search_form})
 

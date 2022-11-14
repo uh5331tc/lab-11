@@ -1,6 +1,6 @@
 
 body {
-    background-color: lightblue;
+    background-color: rgb(10, 174, 67);
     font-size: large;
 }
 
@@ -9,6 +9,6 @@ body {
 }
 
 .navigation > a {
-    color: darkgreen;
-    padding-right: 30px;
+    color: rgb(187, 20, 238);
+    padding-right: 35px;
 }

@@ -15,6 +15,16 @@
     {% block content %}
     {% endblock %}
 
+    <hr> #horizontal rule
+
+    <div class="navigation"> <!--assign a class for the CSS .navigation {} -->
+        <!--On EVERY PAGE these links will take the user to each of the pages -->
+        <a href="{% url 'home'%}">Home</a>
+        <a href="{% url 'video_list'%}">Video List</a>
+        <a href="{% url 'add_video'%}">Add a Video</a>
+
+    </div>
+
 </body>
 
 
