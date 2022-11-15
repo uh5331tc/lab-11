@@ -15,10 +15,25 @@ class Video(models.Model):
 
     def save(self, *args, **kwargs):
         #extract video ID from a youtube URL
+
+        # if not self.url.startswith('https://www.youtube.com/watch'):
+        #     raise ValidationError(f'Not a Youtube UR {self.url}L')
+
         url_components = parse.urlparse(self.url) #known in python to save
         query_string = url_components.query
         if not query_string:
             raise ValidationError(f'Invalid youtube URL {self.url}')
+        
+        if url_components.scheme != 'https':
+            raise ValidationError(f'Not a YouTube URL {self.url} ')
+
+        if url_components.netloc != 'www.youtube.com':  #short for network location 
+            raise ValidationError(f'Not a YouTube URL {self.url} ')
+
+        if url_components.path != '/watch':
+            raise ValidationError(f'Not a YouTube URL {self.url} ')
+
+
         parameters = parse.parse_qs(query_string, strict_parsing=True) #dictionary
         v_parameters_list = parameters.get('v') #returns none if no key found
         if not v_parameters_list:    #check if NONE or empty list
