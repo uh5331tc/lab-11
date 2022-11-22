@@ -51,3 +51,8 @@ def video_list(request):
 
 
 
+def edit_profile(request):
+
+    edit_profile_form = SearchForm(request.GET)  #buiding the form from stored user data
+
+    

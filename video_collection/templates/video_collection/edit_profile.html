@@ -1,0 +1,18 @@
+{% extends 'video_collection/base.html'  %}
+
+
+{% block content %}
+
+<h2>Add new Video</h2>
+
+<form method="POST" aciton="{% url 'edit_profile' %}">
+    {% csrf_token %}
+    {{ new_video_form }}
+    <button type="submit">Edit Profile</button>
+</form>
+
+
+
+
+
+{% endblock %}
